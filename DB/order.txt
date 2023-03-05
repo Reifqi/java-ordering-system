@@ -1,0 +1,10 @@
+Meja 1
+nasgor x3 (20000)
+Total: 60000
+Meja 2
+ayam x3 (10000)
+Total: 30000
+Meja 2
+ayam x1 (10000)
+nas x2 (10000)
+Total: 30000
