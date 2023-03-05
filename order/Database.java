@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 public class Database {
     public static void saveOrder(Order order) {
         try {
-            File file = new File("order.txt");
+            File file = new File("./db/order.txt");
             FileWriter fileWriter = new FileWriter(file, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.println(order);

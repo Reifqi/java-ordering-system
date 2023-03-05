@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
-import order.Database;
-import order.MenuItem;
+import order.MenuManagement;
+import order.MenuManagementImpl;
 import order.Order;
 
 public class Main {
-    static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         Order order = new Order();
+        MenuManagement menuManagement = new MenuManagementImpl();
         int choice;
 
         do {
@@ -16,13 +17,13 @@ public class Main {
             choice = getChoice();
             switch (choice) {
                 case 1:
-                    addMenuItem(order);
+                    menuManagement.addMenuItem(order);
                     break;
                 case 2:
-                    displayOrder(order);
+                    menuManagement.displayOrder(order);
                     break;
                 case 3:
-                    saveOrder(order);
+                    menuManagement.saveOrder(order);
                     break;
                 case 4:
                     System.out.println("Terima kasih telah menggunakan aplikasi kami!");
@@ -46,43 +47,5 @@ public class Main {
     private static int getChoice() {
         System.out.print("Masukkan pilihan Anda: ");
         return scanner.nextInt();
-    }
-
-    private static void addMenuItem(Order order) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Masukkan nomor meja: ");
-        int tableNumber = scanner.nextInt();
-        
-        System.out.print("Masukkan nama makanan: ");
-        String name = scanner.next();
-    
-        System.out.print("Masukkan harga makanan: ");
-        int price = scanner.nextInt();
-    
-        System.out.print("Masukkan jumlah pesanan: ");
-        int quantity = scanner.nextInt();
-    
-        MenuItem item = new MenuItem(name, price);
-        item.setQuantity(quantity);
-        order.addItem(item);
-        order.setTableNumber(tableNumber);
-    
-        System.out.println("Pesanan berhasil ditambahkan!");
-        System.out.println();
-    }
-    
-
-    private static void displayOrder(Order order) {
-        if (order.getItems().isEmpty()) {
-            System.out.println("Belum ada pesanan.");
-        } else {
-            System.out.println("Pesanan Anda:");
-            System.out.println(order);
-        }
-        System.out.println();
-    }
-
-    private static void saveOrder(Order order) {
-        Database.saveOrder(order);
     }
 }
