@@ -28,9 +28,4 @@ public class MenuItem {
     public int getTotalPrice() {
         return price * quantity;
     }
-
-    @Override
-    public String toString() {
-        return String.format("%s x%d = Rp%d", name, quantity, getTotalPrice());
-    }
 }

@@ -34,6 +34,7 @@ public class Order {
         return total;
     }
 
+    //Membuat string dari objek order
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
